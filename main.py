@@ -56,9 +56,11 @@ from FrozenMusic.infra.vector.yt_vector_orchestrator import yt_vector_orchestrat
 from FrozenMusic.infra.vector.yt_backup_engine import yt_backup_engine
 from FrozenMusic.infra.chrono.chrono_formatter import quantum_temporal_humanizer
 from FrozenMusic.vector_text_tools import vectorized_unicode_boldifier
-
+from keep_alive import keep_alive
+# Start the HTTP server to keep Render/UptimeRobot happy
 load_dotenv()
 
+keep_alive()
 
 API_ID = int(os.environ.get("API_ID"))
 API_HASH = os.environ.get("API_HASH")
