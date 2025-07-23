@@ -19,11 +19,13 @@ class WebhookHandler(BaseHTTPRequestHandler):
         self.end_headers()
         self.wfile.write(b"Post request received")
 
-def run_http_server():
+# ✅ Rename the function here
+def keep_alive():
     port = int(os.environ.get("PORT", 8080))
     server = HTTPServer(("", port), WebhookHandler)
     print(f"✅ HTTP server running on port {port}")
     server.serve_forever()
 
+# This part is optional, only needed for standalone testing
 if __name__ == "__main__":
-    run_http_server()
+    keep_alive()
